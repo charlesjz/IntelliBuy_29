@@ -15,7 +15,7 @@
 		http://www.springframework.org/schema/tx/spring-tx.xsd ">
 
 	<!-- 配置Handler -->
-	<bean id="itemsController1" name="/queryItems_test.action" class="cn.itcast.ssm.controller.ItemsController1" />
+	<bean id="itemsController1" name="/queryItems_test.action" class="cn.itcast.ssm.controller.ItemsController1" /> 
 	<!-- 配置另外一个Handler -->
 	<bean id="itemsController2" class="cn.itcast.ssm.controller.ItemsController2" />
 	
@@ -41,8 +41,8 @@
 			<props>
 				<!-- 对itemsController1进行url映射，url是/queryItems1.action -->
 				<prop key="/queryItems1.action">itemsController1</prop>
-				<prop key="/queryItems2.action">itemsController1</prop>
-				<prop key="/queryItems3.action">itemsController2</prop>
+				<prop key="/queryItems2.action">itemsController2</prop>
+				<prop key="/queryItems3.action">itemsController3</prop>
 			</props>
 		</property>
 	</bean>
@@ -57,7 +57,7 @@
 	比如json转换解析器就默认加载了，如果使用mvc:annotation-driven不用配置上边的RequestMappingHandlerMapping和RequestMappingHandlerAdapter
 	实际开发时使用mvc:annotation-driven
 	 -->
-	<!-- <mvc:annotation-driven></mvc:annotation-driven> -->
+	<mvc:annotation-driven></mvc:annotation-driven>
 	
 
 	<!-- 处理器适配器 所有处理器适配器都实现 HandlerAdapter接口 -->

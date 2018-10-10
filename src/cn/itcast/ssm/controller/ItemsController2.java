@@ -15,7 +15,7 @@ import cn.itcast.ssm.po.Items;
 
 /**
  * 
- * <p>Title: ItemsController1</p>
+ * <p>Title: ItemsController2</p>
  * <p>Description:实现HttpRequestHandler接口的 处理器 </p>
  * <p>Company: www.itcast.com</p> 
  * @author	传智.燕青
@@ -33,12 +33,12 @@ public class ItemsController2 implements HttpRequestHandler {
 		//向list中填充静态数据
 		
 		Items items_1 = new Items();
-		items_1.setName("联想笔记本");
+		items_1.setName("联想笔记本2");
 		items_1.setPrice(6000f);
 		items_1.setDetail("ThinkPad T430 联想笔记本电脑！");
 		
 		Items items_2 = new Items();
-		items_2.setName("苹果手机");
+		items_2.setName("苹果手机2");
 		items_2.setPrice(5000f);
 		items_2.setDetail("iphone6苹果手机！");
 		
