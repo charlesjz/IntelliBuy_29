@@ -1,4 +1,4 @@
-package cn.itcast.ssm.po;
+package intelliBuy.po;
 
 import java.util.Date;
 

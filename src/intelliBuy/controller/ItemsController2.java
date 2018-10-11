@@ -1,4 +1,4 @@
-package cn.itcast.ssm.controller;
+package intelliBuy.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,17 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.HttpRequestHandler;
 import org.springframework.web.servlet.ModelAndView;
 
-import cn.itcast.ssm.po.Items;
+import intelliBuy.po.Items;
 
-/**
- * 
- * <p>Title: ItemsController2</p>
- * <p>Description:实现HttpRequestHandler接口的 处理器 </p>
- * <p>Company: www.itcast.com</p> 
- * @author	传智.燕青
- * @date	2015-4-13上午10:46:17
- * @version 1.0
- */
 public class ItemsController2 implements HttpRequestHandler {
 
 	@Override
@@ -33,14 +24,14 @@ public class ItemsController2 implements HttpRequestHandler {
 		//向list中填充静态数据
 		
 		Items items_1 = new Items();
-		items_1.setName("联想笔记本2");
-		items_1.setPrice(6000f);
-		items_1.setDetail("ThinkPad T430 联想笔记本电脑！");
+		items_1.setName("HP OMEN Gaming Laptop 15.6\" FHD, i7-8750H, 16GB, 1TB+128GB SSD, GTX1060, Win10".substring(0, 50));
+		items_1.setPrice(799.99f);
+		items_1.setDetail("HP OMEN Gaming Laptop 15.6\" FHD, i7-8750H, 16GB, 1TB+128GB SSD, GTX1060, Win10");
 		
 		Items items_2 = new Items();
-		items_2.setName("苹果手机2");
+		items_2.setName("Dell G5 15 5587 15.6\" (1 TB+256 GB, Intel Core i7 8th Gen., 2.20 GHz, 16 GB) Laptop - Black - G55877835BLK".substring(0, 50));
 		items_2.setPrice(5000f);
-		items_2.setDetail("iphone6苹果手机！");
+		items_2.setDetail("Dell G5 15 5587 15.6\" (1 TB+256 GB, Intel Core i7 8th Gen., 2.20 GHz, 16 GB) Laptop - Black - G55877835BLK");
 		
 		itemsList.add(items_1);
 		itemsList.add(items_2);
@@ -49,14 +40,6 @@ public class ItemsController2 implements HttpRequestHandler {
 		//设置转发的视图
 		request.getRequestDispatcher("/WEB-INF/jsp/items/itemsList.jsp").forward(request, response);
 
-		//使用此方法可以通过修改response，设置响应的数据格式，比如响应json数据
-
-/*
-		response.setCharacterEncoding("utf-8");
-		response.setContentType("application/json;charset=utf-8");
-		response.getWriter().write("json串");*/
-
-		
 	}
 
 
