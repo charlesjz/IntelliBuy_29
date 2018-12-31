@@ -10,6 +10,7 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 import intelliBuy.po.User;
+import intelliBuy.po.UserCustom;
 import intelliBuy.po.UserQueryVo;
 
 public interface UserMapper {
@@ -39,6 +40,8 @@ public interface UserMapper {
 
 	@Update("update user set #{modifystmt} where id=#{id}")
 	public void updateUser(String modifystmt, int id)throws Exception;
+
+	public List<UserCustom> findUserList(UserQueryVo userQueryVo);
 
 
 	

@@ -40,45 +40,45 @@ public class UserMapperTest {
 	}
 
 	//用户信息的综合 查询
-	@Test
-	public void testFindUserList() throws Exception {
-		
-		SqlSession sqlSession = sqlSessionFactory.openSession();
-		
-		//创建UserMapper对象，mybatis自动生成mapper代理对象
-		UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-		
-		//创建包装对象，设置查询条件
-		UserQueryVo userQueryVo = new UserQueryVo();
-		UserCustom userCustom = new UserCustom();
-		//由于这里使用动态sql，如果不设置某个值，条件不会拼接在sql中
-//		userCustom.setSex("1");
-		userCustom.setUsername("小明");
-		//传入多个id
-		List<Integer> ids = new ArrayList<Integer>();
-		ids.add(1);
-		ids.add(2);
-		ids.add(3);
-		ids.add(4);
-		ids.add(5);
-		ids.add(6);
-		ids.add(7);
-		ids.add(8);
-		ids.add(9);
-		ids.add(10);
-		ids.add(11);
-		ids.add(12);
-		//将ids通过userQueryVo传入statement中
-		userQueryVo.setIds(ids);
-		userQueryVo.setUserCustom(userCustom);
-		//调用userMapper的方法
-		
-		List<UserCustom> list = userMapper.findUserList(userQueryVo);
-		
-		System.out.println(list);
-		
-		
-	}
+//	@Test
+//	public void testFindUserList() throws Exception {
+//		
+//		SqlSession sqlSession = sqlSessionFactory.openSession();
+//		
+//		//创建UserMapper对象，mybatis自动生成mapper代理对象
+//		UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+//		
+//		//创建包装对象，设置查询条件
+//		UserQueryVo userQueryVo = new UserQueryVo();
+//		UserCustom userCustom = new UserCustom();
+//		//由于这里使用动态sql，如果不设置某个值，条件不会拼接在sql中
+////		userCustom.setSex("1");
+//		userCustom.setUsername("小明");
+//		//传入多个id
+//		List<Integer> ids = new ArrayList<Integer>();
+//		ids.add(1);
+//		ids.add(2);
+//		ids.add(3);
+//		ids.add(4);
+//		ids.add(5);
+//		ids.add(6);
+//		ids.add(7);
+//		ids.add(8);
+//		ids.add(9);
+//		ids.add(10);
+//		ids.add(11);
+//		ids.add(12);
+//		//将ids通过userQueryVo传入statement中
+//		userQueryVo.setIds(ids);
+//		userQueryVo.setUserCustom(userCustom);
+//		//调用userMapper的方法
+//		
+//		List<UserCustom> list = userMapper.findUserByUsername(userQueryVo);
+//		
+//		System.out.println(list);
+//		
+//		
+//	}
 	
 	@Test
 	public void testFindUserCount() throws Exception {
@@ -176,15 +176,15 @@ public class UserMapperTest {
 	public void testFindUserByUsername() throws Exception {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-		User user =userMapper.findUserByUsername("1000024");
+		List<User> user =userMapper.findUserByUsername("1000024");
 		sqlSession.commit();
 		sqlSession.close();
 
-		System.out.println(user.getId());
-		System.out.println(user.getUsername());
-		System.out.println(user.getBirthday().toString());
-		System.out.println(user.getSex());
-		System.out.println(user.getAddress());
+		System.out.println(user.get(0).getId());
+		System.out.println(user.get(0).getUsername());
+		System.out.println(user.get(0).getBirthday().toString());
+		System.out.println(user.get(0).getSex());
+		System.out.println(user.get(0).getAddress());
 	}
 
 	@Test

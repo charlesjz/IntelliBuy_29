@@ -2,6 +2,7 @@ package intelliBuy.login;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -32,11 +33,11 @@ public class AuthServiceImpl implements AuthService {
 		sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-		User user = userMapper.findUserByUsername(username);
-		if(user!=null){
-			if(password.equals(user.getPassword())){
-				System.out.println("username:"+user.getUsername()+", password:"+user.getPassword());
-				return user;
+		List<User> userList = userMapper.findUserByUsername(username);
+		if(userList!=null){
+			if(password.equals(userList.get(0).getPassword())){
+				System.out.println("username:"+userList.get(0).getUsername()+", password:"+userList.get(0).getPassword());
+				return userList.get(0);
 			}
 		}else throw new InvalidUsernameAndPasswordException();
 		
