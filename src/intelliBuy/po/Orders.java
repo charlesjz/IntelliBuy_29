@@ -12,6 +12,19 @@ public class Orders {
     private Date createtime;
 
     private String note;
+    
+    public Orders() {
+		super();
+	}
+
+	public Orders(Integer id, Integer userId, String number, Date createtime, String note) {
+    	super();
+    	this.id = id;
+    	this.userId = userId;
+    	this.number = number;
+    	this.createtime = createtime;
+    	this.note = note;
+    }
 
     public Integer getId() {
         return id;
@@ -52,4 +65,11 @@ public class Orders {
     public void setNote(String note) {
         this.note = note == null ? null : note.trim();
     }
+
+	@Override
+	public String toString() {
+		return "Orders [id=" + id + ", userId=" + userId + ", number=" + number + ", createtime=" + createtime
+				+ ", note=" + note + "]";
+	}
+    
 }

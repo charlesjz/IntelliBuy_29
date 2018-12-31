@@ -1,0 +1,2 @@
+http://localhost:8080/IntelliBuy/login.jsp
+http://localhost:8080/IntelliBuy/queryItems1.action
